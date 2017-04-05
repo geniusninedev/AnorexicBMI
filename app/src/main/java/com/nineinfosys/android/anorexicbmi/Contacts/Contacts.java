@@ -1,4 +1,4 @@
-package com.nineinfosys.android.anorexicbmi.Login;
+package com.nineinfosys.android.anorexicbmi.Contacts;
 
 /**
  * Created by Dev on 13-03-2017.

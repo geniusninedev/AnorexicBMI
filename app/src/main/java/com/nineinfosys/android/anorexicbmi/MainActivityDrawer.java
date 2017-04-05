@@ -26,8 +26,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,10 +38,10 @@ import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
 
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.nineinfosys.android.anorexicbmi.AnorexicBMI.AnorexicBMIFragment;
+import com.nineinfosys.android.anorexicbmi.Contacts.Contacts;
 import com.nineinfosys.android.anorexicbmi.DashBord.GetApp;
 import com.nineinfosys.android.anorexicbmi.FoodNutritionTable.FoodNutritionTable;
-import com.nineinfosys.android.anorexicbmi.Login.Contacts;
-import com.nineinfosys.android.anorexicbmi.Login.LoginActivity;
+import com.nineinfosys.android.anorexicbmi.LoginActivity.Login;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.net.MalformedURLException;
@@ -83,7 +83,6 @@ public class MainActivityDrawer extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.shitstuff);
-
 
         /**
          * Lets inflate the very first fragment
@@ -272,7 +271,7 @@ public class MainActivityDrawer extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()==null){
                     Log.e("ForumMainActivity:", "User was null so directed to Login activity");
-                    Intent loginIntent = new Intent(MainActivityDrawer.this, LoginActivity.class);
+                    Intent loginIntent = new Intent(MainActivityDrawer.this, Login.class);
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     finish();
                     startActivity(loginIntent);
