@@ -39,6 +39,7 @@ import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.nineinfosys.android.anorexicbmi.AnorexicBMI.AnorexicBMIFragment;
 import com.nineinfosys.android.anorexicbmi.DashBord.GetApp;
+import com.nineinfosys.android.anorexicbmi.FoodNutritionTable.FoodNutritionTable;
 import com.nineinfosys.android.anorexicbmi.Login.Contacts;
 import com.nineinfosys.android.anorexicbmi.Login.LoginActivity;
 import com.squareup.okhttp.OkHttpClient;
@@ -111,7 +112,12 @@ public class MainActivityDrawer extends AppCompatActivity {
                     /*Intent intent=new Intent(MainActivityDrawer.this, com.nineinfosys.android.weightlosscalculators.AnorexicBMI.ForumMainActivity.class);
                     startActivity(intent);*/
                 }
-
+                if (menuItem.getItemId() == R.id.FoodNutritionTable) {
+                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.containerView, new FoodNutritionTable()).commit();
+                    /*Intent intent=new Intent(MainActivityDrawer.this, com.nineinfosys.android.weightlosscalculators.Weight.ForumMainActivity.class);
+                    startActivity(intent);*/
+                }
                 if (menuItem.getItemId() == R.id.MoreApps) {
 
                     //Sunile Sir Code
