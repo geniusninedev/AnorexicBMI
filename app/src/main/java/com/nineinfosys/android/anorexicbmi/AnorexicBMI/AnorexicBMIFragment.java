@@ -232,19 +232,7 @@ public class AnorexicBMIFragment extends Fragment {
                     editTextAge.setError("Enter Age");
                 } else {
                     int age = (int) Float.parseFloat(editTextAge.getText().toString().trim());
-                    //Default case Calculation
-                    if (radioGroupSex.getCheckedRadioButtonId() == -1 && radioGroupHeight.getCheckedRadioButtonId() == -1 && radioGroupWeight.getCheckedRadioButtonId() == -1) {
-                        //Validation for Edittext  if is blank
-                        if (editTextAge.getText().toString().equals("")) {
-                            editTextAge.setError("Enter Age");
-                        } else if (editTextHeight.getText().toString().equals("")) {
-                            editTextHeight.setError("Enter Height");
-                        } else if (editTextWeight.getText().toString().equals("")) {
-                            editTextWeight.setError("Enter Weight");
-                        } else {
-                            calculateAnorexic(Float.parseFloat(editTextHeight.getText().toString().trim()), Float.parseFloat(editTextWeight.getText().toString().trim()), Float.parseFloat(editTextAge.getText().toString().trim()), "Male");
-                        }
-                    } else if (age <= 18) {
+                    if (age <= 18) {
                         if (radioGroupSex.getCheckedRadioButtonId() == -1) {
                             Toast.makeText(getActivity(), "Please Select Gender as Children", Toast.LENGTH_LONG).show();
                         } else if (!radioButtonSex.getText().toString().trim().equals("Children")) {
@@ -256,7 +244,20 @@ public class AnorexicBMIFragment extends Fragment {
                         } else {
                             AnorexicBMIMethods();
                         }
-                    } else {
+                    }
+                    //Default case Calculation
+                    else if (radioGroupSex.getCheckedRadioButtonId() == -1 && radioGroupHeight.getCheckedRadioButtonId() == -1 && radioGroupWeight.getCheckedRadioButtonId() == -1) {
+                        //Validation for Edittext  if is blank
+                        if (editTextAge.getText().toString().equals("")) {
+                            editTextAge.setError("Enter Age");
+                        } else if (editTextHeight.getText().toString().equals("")) {
+                            editTextHeight.setError("Enter Height");
+                        } else if (editTextWeight.getText().toString().equals("")) {
+                            editTextWeight.setError("Enter Weight");
+                        } else {
+                            calculateAnorexic(Float.parseFloat(editTextHeight.getText().toString().trim()), Float.parseFloat(editTextWeight.getText().toString().trim()), Float.parseFloat(editTextAge.getText().toString().trim()), "Male");
+                        }
+                    }   else {
                         //Validation for radiobutton if not checked
                         if (radioGroupSex.getCheckedRadioButtonId() == -1) {
                             Toast.makeText(getActivity(), "Please Select Gender", Toast.LENGTH_LONG).show();
