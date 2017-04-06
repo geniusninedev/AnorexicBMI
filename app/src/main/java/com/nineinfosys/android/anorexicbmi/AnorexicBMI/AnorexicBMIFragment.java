@@ -229,8 +229,10 @@ public class AnorexicBMIFragment extends Fragment {
                 InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 int age= (int) Float.parseFloat(editTextAge.getText().toString().trim());
-                if (age < 18) {
+                if (age <= 18) {
                     if(radioGroupSex.getCheckedRadioButtonId() == -1){
+                        Toast.makeText(getActivity(),"Please Select Gender as Children",Toast.LENGTH_LONG).show();
+                    }else if(!radioButtonSex.getText().toString().trim().equals("Children")){
                         Toast.makeText(getActivity(),"Please Select Gender as Children",Toast.LENGTH_LONG).show();
                     } else if(radioGroupHeight.getCheckedRadioButtonId() == -1 ) {
                         Toast.makeText(getActivity(), "Please Select Height Unit", Toast.LENGTH_LONG).show();
